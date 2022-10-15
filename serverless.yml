@@ -1,3 +1,4 @@
+#service: go-echo-lambda
 service: go-echo-lambda
 frameworkVersion: "3"
 
@@ -8,7 +9,6 @@ provider:
   region: ap-northeast-1
   apiName: ${self:service}-${self:provider.stage}
   endpointType: REGIONAL
-	
   apiGateway:
     resourcePolicy:
       - Effect: Allow
@@ -29,7 +29,8 @@ functions:
     description: go echo lambda test 
     memorySize: 128
     events:
-      - http:
+      - httpApi:
+      #- http:
           path: /api/{proxy+}
           method: any
           #integration: lambda
