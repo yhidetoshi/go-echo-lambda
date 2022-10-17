@@ -19,7 +19,7 @@ provider:
         Condition:
           IpAddress:
             aws:SourceIp:
-              - ${allow_ip}
+              - ${param:allow_ip}
 
 functions:
   GoEchoLambda:
